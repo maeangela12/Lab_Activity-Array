@@ -1,0 +1,27 @@
+public static class Program
+{
+    public static void Main()
+    {
+        string[] fruits = new string[5];
+        int appleCount = 0;
+
+
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write("Enter favorite fruit #{0}: ", i + 1);
+            fruits[i] = Console.ReadLine().ToLower();
+        }
+
+
+        foreach (string fruit in fruits)
+        {
+            if (fruit == "apple")
+            {
+                appleCount++;
+            }
+        }
+
+
+        Console.WriteLine("You entered 'apple' {0} time(s).", appleCount);
+    }
+}
