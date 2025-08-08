@@ -1,0 +1,49 @@
+public static class Program
+{
+    public static void Main()
+    {
+        float[] sales = new float[12];
+        string[] months = { "January", "February", "March", "April", "May", "June",
+                            "July", "August", "September", "October", "November", "December" };
+
+       
+        for (int i = 0; i < 12; i++)
+        {
+            Console.Write($"Enter sales for {months[i]}: ");
+            sales[i] = float.Parse(Console.ReadLine());
+        }
+
+   
+        float highestSales = sales[0];
+        float lowestSales = sales[0];
+        float totalSales = 0;
+        int highestPosition = 0;
+        int lowestPosition = 0;
+
+        
+        for (int i = 0; i < sales.Length; i++)
+        {
+            totalSales += sales[i];
+
+            if (sales[i] > highestSales)
+            {
+                highestSales = sales[i];
+                highestPosition = i;
+            }
+
+            if (sales[i] < lowestSales)
+            {
+                lowestSales = sales[i];
+                lowestPosition = i;
+            }
+        }
+
+     
+        float averageSales = totalSales / sales.Length;
+
+        
+        Console.WriteLine($"Highest sales: {highestSales} in {months[highestPosition]}");
+        Console.WriteLine($"Lowest sales: {lowestSales} in {months[lowestPosition]}");
+        Console.WriteLine($"Average sales: {averageSales}");
+    }
+}
