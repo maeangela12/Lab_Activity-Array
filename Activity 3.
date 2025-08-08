@@ -1,0 +1,58 @@
+public static class Program
+{
+    public static void Main()
+    {
+
+        float[] scores = new float[5];
+
+        Console.WriteLine("Enter 5 percentage scores:");
+
+
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write($"Score {i + 1}: ");
+            scores[i] = float.Parse(Console.ReadLine());
+        }
+
+        Console.WriteLine("\nResults:");
+
+
+        foreach (float score in scores)
+        {
+
+            string grade;
+            if (score >= 90) grade = "A";
+            else if (score >= 80) grade = "B";
+            else if (score >= 70) grade = "C";
+            else if (score >= 60) grade = "D";
+            else grade = "F";
+
+            Console.WriteLine($"Score: {score}% - Grade: {grade}");
+
+
+            switch (grade)
+            {
+                case "A":
+                    Console.WriteLine("Excellent work!");
+                    break;
+                case "B":
+                    Console.WriteLine("Good work, keep it up!");
+                    break;
+                case "C":
+                    Console.WriteLine("Average Performance");
+                    break;
+                case "D":
+                    Console.WriteLine("Below Average");
+                    break;
+                case "F":
+                    Console.WriteLine("Fail");
+                    break;
+            }
+
+            Console.WriteLine();
+        }
+    }
+}
+
+
+
