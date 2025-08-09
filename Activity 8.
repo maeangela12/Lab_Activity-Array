@@ -1,0 +1,55 @@
+public static class Program
+{
+    public static void Main()
+    {
+
+        string[] passwords = new string[4];
+
+
+        for (int i = 0; i < 4; i++)
+        {
+            Console.Write($"Enter password {i + 1}: ");
+            passwords[i] = Console.ReadLine();
+        }
+
+        Console.WriteLine("\nPassword Validation Results:");
+
+
+        for (int i = 0; i < 4; i++)
+        {
+            bool isValid = true;
+
+
+            if (passwords[i].Length < 6)
+            {
+                isValid = false;
+            }
+
+
+            bool hasUpper = false;
+            foreach (char c in passwords[i])
+            {
+                if (char.IsUpper(c))
+                {
+                    hasUpper = true;
+                    break;
+                }
+            }
+
+            if (!hasUpper)
+            {
+                isValid = false;
+            }
+
+
+            Console.WriteLine($"Password {i + 1}: {(isValid ? "Valid" : "Invalid")}");
+        }
+    }
+}
+
+
+
+
+
+
+
