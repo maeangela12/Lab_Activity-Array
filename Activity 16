@@ -1,0 +1,38 @@
+public static class Program
+{
+    public static void Main()
+    {
+
+        const int numberOfPatients = 5;
+        string[] symptoms = new string[numberOfPatients];
+        string department;
+
+
+        for (int i = 0; i < numberOfPatients; i++)
+        {
+            Console.Write($"Enter symptom for Patient {i + 1}: ");
+            symptoms[i] = Console.ReadLine().ToLower();
+        }
+
+
+        for (int i = 0; i < numberOfPatients; i++)
+        {
+            switch (symptoms[i])
+            {
+                case "fever":
+                case "cough":
+                    department = "General Medicine";
+                    break;
+                case "injury":
+                case "burn":
+                    department = "Emergency";
+                    break;
+                default:
+                    department = "Refer to Specialist";
+                    break;
+            }
+
+            Console.WriteLine($"Patient {i + 1} with symptom '{symptoms[i]}' is assigned to: {department}");
+        }
+    }
+}
