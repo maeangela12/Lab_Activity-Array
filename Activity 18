@@ -1,0 +1,59 @@
+public static class Program
+{
+    public static void Main()
+    {
+        const int numberOfPasswords = 5;
+        string[] passwords = new string[numberOfPasswords];
+
+        
+        for (int i = 0; i < passwords.Length; i++)
+        {
+            Console.Write($"Enter password {i + 1}: ");
+            passwords[i] = Console.ReadLine();
+        }
+
+        Console.WriteLine("\nPassword Strength Results:");
+
+        
+        for (int i = 0; i < numberOfPasswords; i++)
+        {
+            string password = passwords[i];
+            bool hasUppercase = false;
+            bool hasDigit = false;
+            bool hasSpecialChar = false;
+
+            
+            foreach (char c in password)
+            {
+                if (char.IsUpper(c))
+                    hasUppercase = true;
+                else if (char.IsDigit(c))
+                    hasDigit = true;
+                else if ("!@#$%^&*()_+=-[]{};:'\",.<>?/\\|".Contains(c))
+                    hasSpecialChar = true;
+            }
+
+            
+            if (password.Length < 8)
+            {
+                Console.WriteLine($"Password {i + 1}: Invalid (Too short)");
+            }
+            else if (!hasUppercase)
+            {
+                Console.WriteLine($"Password {i + 1}: Weak (No uppercase letter)");
+            }
+            else if (!hasDigit)
+            {
+                Console.WriteLine($"Password {i + 1}: Weak (No digit)");
+            }
+            else if (!hasSpecialChar)
+            {
+                Console.WriteLine($"Password {i + 1}: Weak (No special character)");
+            }
+            else
+            {
+                Console.WriteLine($"Password {i + 1}: Strong");
+            }
+        }
+    }
+}
