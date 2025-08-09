@@ -1,0 +1,46 @@
+public static class Program
+{
+    public static void Main()
+    {
+
+        int numberOfCategories = 5;
+        string[] categories = { "Food", "Rent", "Utilities", "Transport", "Others" };
+        decimal[] expenses = new decimal[numberOfCategories];
+        decimal totalExpenses = 0;
+        decimal monthlyIncome = 25000;
+
+       
+        for (int i = 0; i < categories.Length; i++)
+        {
+            Console.Write($"Enter budget for {categories[i]}: ");
+            expenses[i] = decimal.Parse(Console.ReadLine());
+            totalExpenses += expenses[i];
+        }
+
+        
+        Console.WriteLine($"\nTotal Budget: {totalExpenses}");
+
+        
+        if (totalExpenses > monthlyIncome)
+        {
+           
+            decimal maxExpense = expenses[0];
+            string categoryToCut = categories[0];
+
+            for (int i = 1; i < numberOfCategories; i++)
+            {
+                if (expenses[i] > maxExpense)
+                {
+                    maxExpense = expenses[i];
+                    categoryToCut = categories[i];
+                }
+            }
+
+            Console.WriteLine($"You are over budget! Consider cutting expenses in: {categoryToCut}");
+        }
+        else
+        {
+            Console.WriteLine("You are within your budget.");
+        }
+    }
+}
